@@ -25,9 +25,17 @@ function createImgGallery(galleryItems) {
 }
 
 function onGalleryImgClick(evt) {
+    evt.preventDefault();
     const isImgSwatchEl = evt.target.classList.contains('gallery__image');
     if (!isImgSwatchEl) {
         return;
     }
     console.log(evt.target);
 }
+
+
+// const basicLightbox = document.createElement('div');
+// basicLightbox.classList.add = "basicLightbox";
+// document.body.appendChild(basicLightbox);
+
+// console.log(basicLightbox)
