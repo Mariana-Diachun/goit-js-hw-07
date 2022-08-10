@@ -1,5 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 
+console.log(basicLightbox);
+
 const galleryContainer = document.querySelector('.gallery');
 const imgMurkup = createImgGallery(galleryItems);
 

@@ -1,5 +1,5 @@
 import { galleryItems } from './gallery-items.js';
-
+import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
 
 const galleryContainer = document.querySelector('.gallery');
 const imgMurkup = createImgGallery(galleryItems);
