@@ -32,12 +32,12 @@ function onGalleryImgClick(evt) {
     if (!isImgSwatchEl) {
         return;
     }
-    console.log(evt.target);
+    console.log(evt.target.dataset.original);
 }
 
 
-// const basicLightbox = document.createElement('div');
-// basicLightbox.classList.add = "basicLightbox";
-// document.body.appendChild(basicLightbox);
+const instance = basicLightbox.create(
 
-// console.log(basicLightbox)
+)
+
+instance.show();
