@@ -1,11 +1,11 @@
 import { galleryItems } from './gallery-items.js';
 
 const galleryContainer = document.querySelector('.gallery');
+
 const imgMurkup = createImgGallery(galleryItems);
 
 galleryContainer.insertAdjacentHTML('beforeend', imgMurkup);
 
-galleryContainer.addEventListener('click', onGalleryImgClick);
 
 function createImgGallery(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
@@ -18,18 +18,8 @@ function createImgGallery(galleryItems) {
         `;
     }).join("");
 }
-
-
-function onGalleryImgClick(evt) {
-    evt.preventDefault();
-    const isImgSwatchEl = evt.target.classList.contains('gallery__image');
-    if (!isImgSwatchEl) {
-        return;
-    }
-    console.log(evt.target);
-}
-
-let gallery = new SimpleLightbox('.gallery__img img');
-gallery.on('show.simplelightbox', function () {
-	// do something…
+new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionsDelay: 250,
 });
+    
