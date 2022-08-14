@@ -13,7 +13,7 @@ function createImgGallery(galleryItems) {
         <a class="gallery__item" href="${original}">
             <img class="gallery__image"
             src="${preview}" 
-            alt="${description}" />
+            alt="${description}"/>
         </a>
         `;
     }).join("");
@@ -28,3 +28,8 @@ function onGalleryImgClick(evt) {
     }
     console.log(evt.target);
 }
+
+let gallery = new SimpleLightbox('.gallery__img img');
+gallery.on('show.simplelightbox', function () {
+	// do something…
+});

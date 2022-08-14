@@ -1,15 +1,17 @@
 import { galleryItems } from './gallery-items.js';
 
-console.log(basicLightbox);
 
 const galleryContainer = document.querySelector('.gallery');
+
 const imgMurkup = createImgGallery(galleryItems);
 
 galleryContainer.insertAdjacentHTML('beforeend', imgMurkup);
 
 galleryContainer.addEventListener('click', onGalleryImgClick);
 
-function createImgGallery(galleryItems) {
+
+
+function createImgGallery (galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
         return `
     <div class="gallery__item">
@@ -26,18 +28,36 @@ function createImgGallery(galleryItems) {
     }).join("");
 }
 
+
 function onGalleryImgClick(evt) {
     evt.preventDefault();
     const isImgSwatchEl = evt.target.classList.contains('gallery__image');
     if (!isImgSwatchEl) {
         return;
     }
-    console.log(evt.target.dataset.original);
+
+    
+    let selectedImage = evt.target.dataset.source;
+
+    const instance = basicLightbox.create(`
+        <img src="${selectedImage}"/>
+    `)
+
+    instance.show();
+
+    const visible = instance.visible();
+
+    galleryContainer.addEventListener('keydown', onEscClick);
+
+    function onEscClick(evt) {
+        evt.preventDefault();
+
+        if (!visible) {
+            return
+        }
+        if (evt.key === "Escape") {
+            instance.close();
+        }
+        
+    }
 }
-
-
-const instance = basicLightbox.create(
-
-)
-
-instance.show();
