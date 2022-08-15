@@ -1,11 +1,9 @@
 import { galleryItems } from './gallery-items.js';
 
 const galleryContainer = document.querySelector('.gallery');
-
 const imgMurkup = createImgGallery(galleryItems);
 
 galleryContainer.insertAdjacentHTML('beforeend', imgMurkup);
-
 
 function createImgGallery(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
@@ -18,6 +16,7 @@ function createImgGallery(galleryItems) {
         `;
     }).join("");
 }
+
 new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionsDelay: 250,
