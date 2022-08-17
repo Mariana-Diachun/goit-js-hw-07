@@ -40,7 +40,7 @@ function onGalleryImgClick(evt) {
     const modalImage = instance.element().querySelector('img');
     modalImage.src = selectedImage;
     instance.show();
-
+    
     galleryContainer.addEventListener('keydown', onEscClick);
 }
 
